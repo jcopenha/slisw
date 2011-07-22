@@ -2,6 +2,8 @@
 
 re = Regexp.compile(ARGV[0])
 file = File.new(ARGV[1], "r")
+x = 0
 file.each_line do |line|
-    puts line if line =~ re
+    puts "#{x}: #{line}" if line =~ re
+    x += 1
 end
