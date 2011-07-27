@@ -1,3 +1,14 @@
+class CsvRow
+    def initialize(headers, rawrow)
+        @headers = headers
+        @rawrow = rawrow
+    end
+    def method_missing(name, *args)
+        @rawrow[@headers.index{|x|x.eql?(name.to_s)}] # name comes in as symbol
+                                                      # need to_s on it
+    end
+end
+
 module ActsAsCsv
 
     def self.included(base)
@@ -23,6 +34,13 @@ module ActsAsCsv
             end
         end
 
+        def each
+            @csv_contents.each do |rawrow|
+                row = CsvRow.new(@headers, rawrow)
+                yield row
+            end
+        end
+
         attr_accessor :headers, :csv_contents
 
         def initialize
@@ -39,3 +57,6 @@ end
 m = RubyCsv.new
 puts m.headers.inspect
 puts m.csv_contents.inspect
+m.each do |row|
+    puts row.one
+end
