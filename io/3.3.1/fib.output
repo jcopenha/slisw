@@ -1,0 +1,29 @@
+Recursive implementation
+
+# fib.io:3
+method(n, 
+    if(n == 1 or n == 2, 1, recurse(n - 1) + recurse(n - 2))
+)
+1
+1
+3
+21
+Iterative implementation
+
+# fib.io:15
+method(n, 
+    if(n == 1 or n == 2, 1, 
+        sub0 := 1
+        sub1 := 1
+        total := sub1 + sub0
+        for(i, 3, n - 1, 
+            sub0 := sub1
+            sub1 := total
+            total := sub1 + sub0
+        )
+    )
+)
+1
+1
+3
+21
