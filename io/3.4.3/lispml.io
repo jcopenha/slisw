@@ -17,6 +17,8 @@ Map atPutAttribute := method(
 Builder curlyBrackets := method(
     r := Map clone
     call message arguments foreach(arg,
+        # this is annoying, OperatorTable overloading doesn't work in same
+        # file, have to use doString to execute in new context
         r doString(arg asString)
         )
     r
