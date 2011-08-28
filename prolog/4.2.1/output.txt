@@ -1,0 +1,22 @@
+jcopenha@terman:~/src/slisw/prolog/4.2.1$ gprolog 
+GNU Prolog 1.4.0
+By Daniel Diaz
+Copyright (C) 1999-2011 Daniel Diaz
+| ?- ['books.pl'].
+compiling /Users/jcopenha/src/slisw/prolog/4.2.1/books.pl for byte code...
+/Users/jcopenha/src/slisw/prolog/4.2.1/books.pl compiled, 8 lines read - 983 bytes written, 11 ms
+
+yes
+| ?- wrote(Books,herbert).
+
+Books = dune ? a
+
+Books = children_of_dune
+
+Books = god_emperor_of_dune
+
+Books = chapterhouse_of_dune
+
+no
+| ?- 
+
