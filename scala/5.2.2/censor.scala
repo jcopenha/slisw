@@ -1,19 +1,13 @@
 object Censor {
     val badwords = Map("Shoot" -> "Plucky", "Darn" -> "Beans")
     def censor(a:List[java.lang.String]) = {
-        var f = List[java.lang.String]()
-        badwords.foreach(m => {
-            val m1 = a.map(word => if (word == m._1) {
-                                        m._2
-                                    } else {
-                                        word
-                                    })
-            println(m1)
-            f = f ++ m1
-        })
-        f
+        a.map(word => if (badwords.contains(word)) {
+                        badwords(word)
+                      } else {
+                        word
+                      })
     }
 }
 
-var a = List("Shoot", "jason", "else")
+var a = List("Shoot", "jason", "another", "Darn", "else")
 println(Censor.censor(a))
